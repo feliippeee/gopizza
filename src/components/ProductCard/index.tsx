@@ -1,5 +1,5 @@
 import React from 'react';
-import {RectButtonProps } from 'react-native-gesture-handler';
+import {RectButtonProps, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useTheme } from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 
@@ -28,6 +28,8 @@ type Props = RectButtonProps & {
 export function ProductCard({ data, ...rest}: Props) {
     const { COLORS } = useTheme();
     return (
+        <GestureHandlerRootView>
+
         <Container>
             <Content {...rest}>
                 <Image source={{uri: data.photo_url}} />
@@ -44,5 +46,6 @@ export function ProductCard({ data, ...rest}: Props) {
             </Content>
             <Line />
         </Container>
+        </GestureHandlerRootView>
     )
 }
