@@ -5,7 +5,7 @@ export type TypeProps = 'primary' | 'secondary';
 
 type ContainerProps = {
     type: TypeProps;
-}
+};
 
 export const Container = styled(RectButton)<ContainerProps>`
     flex: 1;
