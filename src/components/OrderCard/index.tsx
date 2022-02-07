@@ -30,7 +30,7 @@ export function OrderCard({ index, data, ...rest}: Props) {
         <Container index={index} {...rest}>
             <Image source={{uri: data.image}} />
 
-            <Name>4 Queijos</Name>
+            <Name>{data.pizza}</Name>
 
             <Description>
                 mesa {data.table_number} ● Qnt: {data.quantity}

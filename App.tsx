@@ -10,6 +10,7 @@ import { Orders } from '@screens/Orders';
 import { Routes } from './src/routes';
 
 import theme from "./src/theme";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,11 +22,13 @@ export default function App() {
     return <AppLoading />
   }
   return (
-    <ThemeProvider theme={theme}>
-      <StatusBar style="light" translucent backgroundColor="transparent" />
-      <AuthProvider>
-         <Routes />
-      </AuthProvider>
-    </ThemeProvider>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <ThemeProvider theme={theme} >
+        <StatusBar style="light" translucent backgroundColor="transparent" />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
