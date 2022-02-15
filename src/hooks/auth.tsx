@@ -60,9 +60,9 @@ function AuthProvider({ children }: AuthProviderProps) {
                     name,
                     isAdmin
                 };
-                
                 await AsyncStorage.setItem(USER_COLLECTION, JSON.stringify(userData));
                 setUser(userData);
+                console.log('User data',userData);
             }
         })
         .catch(() => Alert.alert('Login', 'Não foi possível buscar dados de perfil do usuário.'));
@@ -95,9 +95,24 @@ function AuthProvider({ children }: AuthProviderProps) {
    }
 
    async function signOut() {
-       await auth().signOut();
-       await AsyncStorage.removeItem(USER_COLLECTION);
-       setUser(null);
+
+    Alert.alert('Sair', 'Tem certeza que deseja sair do GoPizza?', [
+        { 
+            text: 'Não',
+            style: 'cancel'
+        },
+        {
+        text: 'Sim',
+        onPress: async() => {
+            await auth().signOut();
+            await AsyncStorage.removeItem(USER_COLLECTION);
+            setUser(null);
+        }
+    }
+    ]);
+
+
+      
    }
 
    async function forgotPassword(email: string) {

@@ -20,7 +20,7 @@ export function SignIn() {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const { signIn, signOut, isLogging, forgotPassword } = useAuth();
+    const { signIn, isLogging, forgotPassword } = useAuth();
 
     function handleSignIn() {
         signIn(email, password);
